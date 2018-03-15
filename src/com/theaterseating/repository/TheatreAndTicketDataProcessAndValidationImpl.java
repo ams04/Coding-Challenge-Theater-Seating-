@@ -9,15 +9,21 @@ import com.theaterseating.model.TheaterSection;
 
 public class TheatreAndTicketDataProcessAndValidationImpl implements TheatreAndTicketDataProcessAndValidation{
 
-
+/**
+ * This function validates the input entered by the user and returns a {@link TheaterLayout} object, with all the fields initialized.
+ * 
+ * @param inputLayout the layout entered by the user.
+ * 
+ * return a {@link TheaterLayout} object.
+ */
     @Override
-    public TheaterLayout getTheaterLayout(String rawLayout) throws NumberFormatException{
+    public TheaterLayout getTheaterLayout(String inputLayout) throws NumberFormatException{
         
         TheaterLayout theaterLayout = new TheaterLayout();
         TheaterSection section;
         List<TheaterSection> sectionsList = new ArrayList<TheaterSection>();
         int totalCapacity = 0, value;
-        String[] rows = rawLayout.split(System.lineSeparator());
+        String[] rows = inputLayout.split(System.lineSeparator());
         String[] sections;
         
         for(int i=0 ; i<rows.length ; i++){
@@ -32,7 +38,7 @@ public class TheatreAndTicketDataProcessAndValidationImpl implements TheatreAndT
                     
                 }catch(NumberFormatException nfe){
                     
-                    throw new NumberFormatException("'" + sections[j] + "'" + " is invalid section capacity. Please correct it.");
+                    throw new NumberFormatException("'" + sections[j] + "'" + " is an invalid section capacity");
                     
                 }
                 
@@ -58,8 +64,12 @@ public class TheatreAndTicketDataProcessAndValidationImpl implements TheatreAndT
         
     }
 
-    /* (non-Javadoc)
-     * @see com.theaterseating.service.TheaterSeatingService#getTicketRequests(java.lang.String)
+    /**
+     * This function validates the user's input and returns a list of {@link TheaterRequest} objects by processing the input.
+     * 
+     * @param the ticket requests entered in a String format.
+     * 
+     * return a List of {@link TheaterRequest}.
      */
     @Override
     public List<TheaterRequest> getTicketRequests(String ticketRequests) throws NumberFormatException{
@@ -83,7 +93,7 @@ public class TheatreAndTicketDataProcessAndValidationImpl implements TheatreAndT
                 
             }catch(NumberFormatException nfe){
                 
-                throw new NumberFormatException("'" + rData[1] + "'" + " is invalid ticket request. Please correct it.");
+                throw new NumberFormatException("'" + rData[1] + "'" + " is invalid ticket request.");
             }
             request.setRequestCompleted(false);
             

@@ -1,3 +1,5 @@
+Note: Refer the ReadMeInText.txt file in the parent folder to view the same contents with proper indentations.
+
 Solution to Theater Seating problem
 
 1. How to run the solution:

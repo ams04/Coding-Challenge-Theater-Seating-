@@ -23,7 +23,7 @@ public class Main {
 		StringBuilder ticketRequests = new StringBuilder();
 		boolean isLayoutFinished = false;
 
-		System.out.println("Please enter the Theater Layout and Ticket requests. Type 'done'.\n on a new line and press enter");
+		System.out.println("Please enter the Theater Layout and Ticket requests. Then type 'done' on a new line and press enter.\n ");
 
 		Scanner src = new Scanner(System.in);
 
